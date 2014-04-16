@@ -3,6 +3,8 @@ import java.util.Set;
 
 class ThirtyQuestions{
 
+    //Strings
+    
     //1
     public static boolean isPalindrome(String str){
         for(int i = 0, j = str.length() - 1; i <= str.length()/2; i++, j--){
@@ -58,6 +60,8 @@ class ThirtyQuestions{
         return newString.toString();
     }
     
+    
+    //4
     public static String longestPalindrome(String str){
         
         int longestStart = 0;
@@ -70,13 +74,13 @@ class ThirtyQuestions{
             int left = midPoint - 1;
             int right = midPoint + 1;
             
-            while(left >= 0 && right < letters.length){
-                if(letters[left] == letters[right]){
-                    if((right - left) > (longestEnd - longestStart) ){
-                        longestStart = left;
-                        longestEnd = right;
-                    }
+            while(left >= 0 && right < letters.length && letters[left] == letters[right]){
+                
+                if((right - left) > (longestEnd - longestStart) ){
+                    longestStart = left;
+                    longestEnd = right;
                 }
+                
                 left--;
                 right++;
             }
@@ -86,12 +90,10 @@ class ThirtyQuestions{
             left = midPoint;
             right = midPoint + 1;
             
-            while(left >= 0 && right < letters.length){
-                if(letters[left] == letters[right]){
-                    if((right - left) > (longestEnd - longestStart) ){
-                        longestStart = left;
-                        longestEnd = right;
-                    }
+            while(left >= 0 && right < letters.length && letters[left] == letters[right]){
+                if((right - left) > (longestEnd - longestStart) ){
+                    longestStart = left;
+                    longestEnd = right;
                 }
                 left--;
                 right++;
@@ -100,6 +102,39 @@ class ThirtyQuestions{
         
         return str.substring(longestStart, longestEnd + 1);
     }
+    
+    
+    
+   //Arrays
+   
+   //5
+    public static int findMissingNumber(int[] nums){
+        int sum = (100 * (100+1)) / 2;
+        int actualSum = 0;
+        for(int num : nums){
+            actualSum += num; 
+        }
+        return sum - actualSum;   
+    }
+    
+    //6
+    public static int findDuplicateNumber(int[] nums){
+        int[] duplicateCheck = new int[100];
+        
+        for(int num : nums){
+            if(duplicateCheck[num] != 0){
+                return num; //return the double
+            }
+            duplicateCheck[num] = num;
+        }
+        
+        return -1; //no doubles
+    }
+    
+    //7
+    
+    
+    
     
     
 }
