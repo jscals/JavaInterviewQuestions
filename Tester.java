@@ -1,4 +1,5 @@
 import java.util.Set;
+import java.util.Random;
 class Tester{
      public static void main(String args[]){
         
@@ -35,8 +36,18 @@ class Tester{
          
          //Arrays
          System.out.println("***********Array Questions***********");
+         Random gen = new Random();
+         int[] arr1 = new int[100];
          
-         System.out.println("1:");
+         for(int i =1; i <= 100; i++){
+             arr1[i] = i;
+         }
+         
+         System.out.println("5:");
+         
+         System.out.println("6:");
+         
+         System.out.println("7:");
          
     }
 }

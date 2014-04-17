@@ -118,8 +118,9 @@ class ThirtyQuestions{
     }
     
     //6
+    //Could have also done with a hashset
     public static int findDuplicateNumber(int[] nums){
-        int[] duplicateCheck = new int[100];
+        int[] duplicateCheck = new int[101];
         
         for(int num : nums){
             if(duplicateCheck[num] != 0){
@@ -127,11 +128,47 @@ class ThirtyQuestions{
             }
             duplicateCheck[num] = num;
         }
-        
         return -1; //no doubles
     }
     
     //7
+    //Array will contain the numbers and their counts.
+    //Could have also used treeset with values as number counts.
+    public static int[] findDuplicateNumbers(int[] nums){
+        int[] numberCounts = new int[101];
+        
+        for(int num : nums){
+            numberCounts[num] += 1;
+        }
+        
+        return numberCounts;
+    }
+    
+    //8
+    public static int findNumberNotInSecondArray(int[] a, int[] b){
+        HashSet<Integer> nums = new HashSet<Integer>();
+        
+        for(int num : a){
+            nums.add(num);
+        }
+        
+        boolean uniqueToB; 
+        for(int num : b){
+            uniqueToB = nums.add(num);
+            if(!uniqueToB){
+                return num; //found common element. 
+            }
+        }
+        return -1; //Mutally exclusive arrays.
+    }
+    
+    //9
+    
+    
+    
+    
+    
+    
     
     
     
