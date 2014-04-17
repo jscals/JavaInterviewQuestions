@@ -1,2 +1,5 @@
 #ignore compiled
 *.class
+
+#ignore tester class
+Tester.java

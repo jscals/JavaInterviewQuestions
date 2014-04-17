@@ -3,7 +3,7 @@ import java.util.Set;
 
 class InterviewQuestions{
 
-    //Strings
+    //Strings------------------------------------------------------------------
     
     //1
     public static boolean isPalindrome(String str){
@@ -85,7 +85,6 @@ class InterviewQuestions{
                 right++;
             }
             
-   
             //Even length words
             left = midPoint;
             right = midPoint + 1;
@@ -99,41 +98,50 @@ class InterviewQuestions{
                 right++;
             }
         }
-        
         return str.substring(longestStart, longestEnd + 1);
     }
     
     
     
-   //Arrays
+   //Arrays--------------------------------------------------------------------
    
    //5
+   /* @param nums -- array of size 99, contains integers 1-100 with one value
+    *                missing. 
+   */
     public static int findMissingNumber(int[] nums){
-        int sum = (100 * (100+1)) / 2;
+        int sum = (100 * (100 + 1)) / 2; //sum of a sequence
         int actualSum = 0;
+        
         for(int num : nums){
             actualSum += num; 
         }
-        return sum - actualSum;   
+        
+        return sum - actualSum;  
     }
     
     //6
-    //Could have also done with a hashset
+    /* Could have also done with a hashset
+     * @param nums -- array of size 101, contains integers 1-100 with one value
+     *                repeated once. 
+    */
     public static int findDuplicateNumber(int[] nums){
         int[] duplicateCheck = new int[101];
         
         for(int num : nums){
             if(duplicateCheck[num] != 0){
-                return num; //return the double
+                return num; //return the duplicate
             }
             duplicateCheck[num] = num;
         }
+        
         return -1; //no doubles
     }
     
     //7
-    //Array will contain the numbers and their counts.
-    //Could have also used treeset with values as number counts.
+    /* Could have also used treeset with values as number counts.
+     * @param nums -- array containing integers with values 1-100. Size is irrelevant. 
+    */
     public static int[] findDuplicateNumbers(int[] nums){
         int[] numberCounts = new int[101];
         
@@ -141,25 +149,33 @@ class InterviewQuestions{
             numberCounts[num] += 1;
         }
         
+        //Each index of array contains the count for that indices' value. 
         return numberCounts;
     }
     
     //8
+    /* @param a -- array of integers 
+     * @param b -- array of integers contained in 'a' but with one different value.
+    */
     public static int findNumberNotInSecondArray(int[] a, int[] b){
         HashSet<Integer> nums = new HashSet<Integer>();
+        int sumA = 0;
+        int sumB = 0;
+        boolean inA;
         
         for(int num : a){
             nums.add(num);
+            sumA += num;
         }
         
-        boolean uniqueToB; 
         for(int num : b){
-            uniqueToB = nums.add(num);
-            if(!uniqueToB){
-                return num; //found common element. 
+            inA = nums.add(num); //returns false if already there
+            if(!inA){
+                sumB += num;
             }
         }
-        return -1; //Mutally exclusive arrays.
+        return sumA - sumB; //The difference will be the missing value since we
+                           // didn't include the different value.
     }
     
     //9
