@@ -1,7 +1,7 @@
 JavaInterviewQuestions
 ======================
 
-Just a small collection of popular java interview questions and answers. Obviously most of these can be solved in more than one way, so use my answers as a reference if you want to give the questions a go. The questions are as follows:
+Just a small collection of popular java interview questions and answers. Obviously most of these can be solved in more than one way, so use my answers as a reference if you want to give the questions a go. I will add more questions as time goes on. The questions are as follows:
 
 Strings
 -------
@@ -26,6 +26,24 @@ Arrays
 8) Given two arrays, find which number is not present in the second array.
 
 9) How do you find second highest number in an integer array?
+
+Linked Lists
+------------
+
+10) How do you find middle element of a linked list in single pass?
+
+11) How do you find 3rd element from last in single pass?
+
+12) How do you reverse a singly linked list?
+
+Searching and Sorting
+---------------------
+
+13) Write a program to sort numbers using quick sort?
+
+14) Write a program to implement binary search algorithm
+
+15) How do you sort Java object using Comparator?
 
 
 ----------------------------------------

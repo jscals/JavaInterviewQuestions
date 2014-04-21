@@ -1,5 +1,9 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.LinkedList;
+
+import java.util.Comparator;
 
 class InterviewQuestions{
 
@@ -103,6 +107,8 @@ class InterviewQuestions{
     
     
     
+    
+    
    //Arrays--------------------------------------------------------------------
    
    //5
@@ -178,9 +184,139 @@ class InterviewQuestions{
                            // didn't include the different value.
     }
     
+    
     //9
+    public static int findSecondHighestNumber(int[] nums){
+        int currHighest = Integer.MIN_VALUE;
+        int lastHighest = Integer.MIN_VALUE;
+        
+        for(int num : nums){
+            if(num > currHighest){
+                lastHighest = currHighest;
+                currHighest = num;
+            }
+        }
+        return lastHighest;
+    }
     
     
+    
+    
+    
+    //Linked List--------------------------------------------------------------
+    //10
+    public static Integer findMiddleElement(LinkedList<Integer> nums){
+        int endPointer = 0;
+        int midPointer = 0;
+        boolean foundEnd = false;
+        
+        while(!foundEnd){
+            Integer node1 = null;
+            Integer node2 = null;
+            
+            try{
+                node2 = nums.get(midPointer);
+                node1 = nums.get(endPointer);
+                 
+            }
+            catch(IndexOutOfBoundsException e){
+                node1 = null;
+                
+            }
+            
+            if(node1 != null){
+                endPointer += 2;
+                midPointer += 1; 
+            }
+            else{
+                return node2;
+            }
+        }
+        return null;
+    }
+    
+    //11
+    public static Integer findThirdLastElement(LinkedList<Integer> nums){
+        int endPointer = 0;
+        int thirdLastPointer = 0;
+        boolean foundEnd = false;
+        Integer lastElement = null;
+        
+        while(!foundEnd){
+            if(endPointer < 2){
+                endPointer++; //need to lag other pointer 3 spots behind.
+            }
+            else{
+                endPointer++;
+                try{
+                    lastElement = nums.get(endPointer);
+                }
+                catch(IndexOutOfBoundsException e){
+                    return nums.get(thirdLastPointer);
+                }
+                thirdLastPointer++;
+            }
+        }
+        return null;
+    }
+    
+    //12
+    public static LinkedList<Integer> reverseList(LinkedList<Integer> nums){
+        
+        LinkedList<Integer> numsReversed = new LinkedList<Integer>();
+        
+        for(Integer num : nums){
+            numsReversed.push(num);
+        }
+        
+        return numsReversed;
+    }
+    
+    
+    
+    
+    //Searching and Sorting----------------------------------------------------
+    //13
+    public static void quickSort(int[] arr){
+        swapByPivot(arr, 0, arr.length - 1);
+    }
+    
+    private static void swapByPivot(int[] arr, int start, int end){
+        int pivot = start + ((end - start) / 2);
+        int i = start;
+        int j = end;
+        
+        while(i <= j){
+            //find elements to swap
+            while(arr[i] < arr[pivot]){ i++; }
+            while(arr[j] > arr[pivot]){ j--; }
+            
+            //swap
+            if(i <= j){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                j--; i++;
+            }
+        }
+        
+        //recursion with with both sides of pivot. 
+        if(start < j) swapByPivot(arr, start, j);
+        if(end > i) swapByPivot(arr, i, end);
+    }
+    
+    
+    //14
+    public static int binarySearch(int[] arr, int target){
+        
+        
+        return target; 
+    }
+    
+    //15
+    public static void sortByComparator(Integer[] arr, Comparator<Integer> comp){
+        Arrays.sort(arr, comp);
+    }
     
     
     
