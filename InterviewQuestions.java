@@ -8,7 +8,6 @@ import java.util.Comparator;
 class InterviewQuestions{
 
     //Strings------------------------------------------------------------------
-    
     //1
     public static boolean isPalindrome(String str){
         for(int i = 0, j = str.length() - 1; i <= str.length()/2; i++, j--){
@@ -274,7 +273,6 @@ class InterviewQuestions{
     
     
     
-    
     //Searching and Sorting----------------------------------------------------
     //13
     public static void quickSort(int[] arr){
@@ -308,18 +306,95 @@ class InterviewQuestions{
     
     //14
     public static int binarySearch(int[] arr, int target){
-        
-        
-        return target; 
+       int low = 0;
+       int high = arr.length -1;
+       
+       while(low <= high){
+           int mid = low + ((high - low) / 2);
+
+           if(target > arr[mid]) low = mid + 1; 
+           else if(target < arr[mid]) high = mid + 1;
+           else return target; 
+        }
+       return -1; 
     }
     
+    
+    
+    //Numbers------------------------------------------------------------------
     //15
-    public static void sortByComparator(Integer[] arr, Comparator<Integer> comp){
-        Arrays.sort(arr, comp);
+    public static boolean isPowerOfTwo(int num){
+ 
+        int currNum = num;
+        while(currNum > 1){
+            int ans = currNum / 2;
+            int remainder = currNum % 2; 
+            
+            if(remainder != 0){
+                return false;
+            }
+            else if(ans == 1){
+                return true;
+            }
+            else{
+                currNum = ans;
+            }
+        }
+        return false; //Keep compiler happy. 
     }
     
+    //16
+    public static boolean isNumberPalindrome(int num){
+        
+        String numString = Integer.toString(num);
+        int length = numString.length();
+        
+        for(int start = 0, end = length - 1; start <= (length - 1) / 2; start++, end--){
+            if(numString.charAt(start) != numString.charAt(end)){
+                return false;
+            }
+        }
+        return true;
+    }
     
+    //17
+    public static void printPrimeNumbers(int limit){
+       
+        for(int num = 1; num < limit; num++){
+            boolean isPrime = true;
+            
+            //Check that current num isn't divisible by any number up to its square root.
+            for(int divCheck = 2; divCheck <= Math.sqrt(num); divCheck++){
+                if(num % divCheck == 0){
+                    isPrime = false;
+                }
+            }
+            
+            if(isPrime){
+                System.out.print(num);
+                System.out.print(" ");
+            }
+        }
+    }
     
+    //18
+    public static void printNthFibonaci(int n){
+        if(n >= 1){ 
+            int lastNum2 = 0;
+            System.out.print(0 + " ");
+            
+            int lastNum1 = 1;
+            System.out.print(1 + " ");
+            
+            while(lastNum1 + lastNum2 < n){
+                int nextNum = lastNum1 + lastNum2;
+                System.out.print(nextNum);
+                System.out.print(" ");
+                lastNum2 = lastNum1;
+                lastNum1 = nextNum;   
+            }
+        }
+    }
     
     
     

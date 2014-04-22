@@ -43,8 +43,25 @@ Searching and Sorting
 
 14) Write a program to implement binary search algorithm
 
-15) How do you sort Java object using Comparator?
+Numbers
+-------
 
+15) Write code to check whether a number is power of two or not?
+
+16) Write a program to check whether a number is palindrome or not?
+
+17) Write a program to find all prime number up to a given numbers?
+
+18) Write function to compute Nth Fibonacci number? 
+
+Binary Trees
+------------
+
+19) How do you find depth of binary tree?
+
+20) Write code to print InOrder traversal of a tree?
+
+21) Print out all leaf node of a binary tree?
 
 ----------------------------------------
 These questions were originally posted at
