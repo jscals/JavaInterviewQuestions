@@ -1,9 +1,7 @@
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
 
-import java.util.Comparator;
 
 class InterviewQuestions{
 
@@ -21,7 +19,7 @@ class InterviewQuestions{
     
     //2
     public static String removeAll(String str, char chr){
-        String replaced = str. replaceAll(chr + "", "");
+        String replaced = str.replaceAll(chr + "", "");
         return replaced;
     }
     
@@ -179,6 +177,7 @@ class InterviewQuestions{
                 sumB += num;
             }
         }
+        
         return sumA - sumB; //The difference will be the missing value since we
                            // didn't include the different value.
     }
@@ -313,7 +312,7 @@ class InterviewQuestions{
            int mid = low + ((high - low) / 2);
 
            if(target > arr[mid]) low = mid + 1; 
-           else if(target < arr[mid]) high = mid + 1;
+           else if(target < arr[mid]) high = mid - 1;
            else return target; 
         }
        return -1; 
@@ -397,8 +396,40 @@ class InterviewQuestions{
     }
     
     
+    //Binary Trees--------------------------------------------------------------
+    //19
+    public static int getTreeDepth(BinaryTree tree){
+        return recursiveTreeDepth(tree.head);
+    }
+    
+    private static int recursiveTreeDepth(Node currNode){
+        if(currNode == null){
+            return 0;
+        }
+        return 1 + Math.max(recursiveTreeDepth(currNode.getLeftChild), recursiveTreeDepth(currNode.getRightChild));
+    }
     
     
+    //20
+    public static void printTreeTraversal(BinaryTree tree){
+        //TODO
+    }
     
+    
+    //21
+    public static void printLeafNodes(BinaryTree tree){
+        recursiveLeafPrint(tree.head);
+    }
+    
+    private static void recursiveLeafPrint(Node currNode){
+        
+        if(currNode != null && currNode.getLeftChild == null && currNode.getRightChild == null){
+            System.out.println(currNode.value);
+        }
+        else if(currNode != null){
+            recursiveLeafPrint(currNode.getLeftChild);
+            recursiveLeafPrint(currNode.getRightChild);
+        }
+    }
     
 }
