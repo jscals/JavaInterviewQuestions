@@ -123,6 +123,7 @@ class InterviewQuestions{
         return sum - actualSum;  
     }
     
+    
     //6
     /* Could have also done with a hashset
      * @param nums -- array of size 101, contains integers 1-100 with one value
@@ -141,6 +142,7 @@ class InterviewQuestions{
         return -1; //no doubles
     }
     
+    
     //7
     /* Could have also used treeset with values as number counts.
      * @param nums -- array containing integers with values 1-100. Size is irrelevant. 
@@ -155,6 +157,7 @@ class InterviewQuestions{
         //Each index of array contains the count for that indices' value. 
         return numberCounts;
     }
+    
     
     //8
     /* @param a -- array of integers 
@@ -199,8 +202,7 @@ class InterviewQuestions{
     
     
     
-    
-    
+   
     //Linked List--------------------------------------------------------------
     //10
     public static Integer findMiddleElement(LinkedList<Integer> nums){
@@ -233,6 +235,7 @@ class InterviewQuestions{
         return null;
     }
     
+    
     //11
     public static Integer findThirdLastElement(LinkedList<Integer> nums){
         int endPointer = 0;
@@ -258,6 +261,7 @@ class InterviewQuestions{
         return null;
     }
     
+    
     //12
     public static LinkedList<Integer> reverseList(LinkedList<Integer> nums){
         
@@ -269,6 +273,7 @@ class InterviewQuestions{
         
         return numsReversed;
     }
+    
     
     
     
@@ -320,6 +325,7 @@ class InterviewQuestions{
     
     
     
+    
     //Numbers------------------------------------------------------------------
     //15
     public static boolean isPowerOfTwo(int num){
@@ -342,6 +348,7 @@ class InterviewQuestions{
         return false; //Keep compiler happy. 
     }
     
+    
     //16
     public static boolean isNumberPalindrome(int num){
         
@@ -355,6 +362,7 @@ class InterviewQuestions{
         }
         return true;
     }
+    
     
     //17
     public static void printPrimeNumbers(int limit){
@@ -376,6 +384,7 @@ class InterviewQuestions{
         }
     }
     
+    
     //18
     public static void printNthFibonaci(int n){
         if(n >= 1){ 
@@ -394,6 +403,8 @@ class InterviewQuestions{
             }
         }
     }
+    
+    
     
     
     //Binary Trees--------------------------------------------------------------
