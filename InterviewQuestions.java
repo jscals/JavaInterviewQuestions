@@ -399,14 +399,14 @@ class InterviewQuestions{
     //Binary Trees--------------------------------------------------------------
     //19
     public static int getTreeDepth(BinaryTree tree){
-        return recursiveTreeDepth(tree.head);
+        return recursiveTreeDepth(tree.getHead());
     }
     
     private static int recursiveTreeDepth(Node currNode){
         if(currNode == null){
             return 0;
         }
-        return 1 + Math.max(recursiveTreeDepth(currNode.getLeftChild), recursiveTreeDepth(currNode.getRightChild));
+        return 1 + Math.max(recursiveTreeDepth(currNode.getLeftChild()), recursiveTreeDepth(currNode.getRightChild()));
     }
     
     
@@ -418,17 +418,17 @@ class InterviewQuestions{
     
     //21
     public static void printLeafNodes(BinaryTree tree){
-        recursiveLeafPrint(tree.head);
+        recursiveLeafPrint(tree.getHead());
     }
     
     private static void recursiveLeafPrint(Node currNode){
         
-        if(currNode != null && currNode.getLeftChild == null && currNode.getRightChild == null){
+        if(currNode != null && currNode.getLeftChild() == null && currNode.getRightChild() == null){
             System.out.println(currNode.value);
         }
         else if(currNode != null){
-            recursiveLeafPrint(currNode.getLeftChild);
-            recursiveLeafPrint(currNode.getRightChild);
+            recursiveLeafPrint(currNode.getLeftChild());
+            recursiveLeafPrint(currNode.getRightChild());
         }
     }
     
